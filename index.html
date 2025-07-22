@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Talentus Car - Agendamento</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main>
+    <form id="agendamentoForm">
+      <div>
+        <label for="nome">Nome:</label><br />
+        <input type="text" id="nome" name="nome" required />
+      </div>
+
+      <div>
+        <label for="sobrenome">Sobrenome:</label><br />
+        <input type="text" id="sobrenome" name="sobrenome" required />
+      </div>
+
+      <div>
+        <label for="telefone">Telefone (WhatsApp):</label><br />
+        <input type="tel" id="telefone" name="telefone" required pattern="[0-9\s\-\+\(\)]{8,15}" placeholder="(XX) XXXXX-XXXX" />
+      </div>
+
+      <div>
+        <label for="tipoVeiculo">Tipo de veículo:</label><br />
+        <select id="tipoVeiculo" name="tipoVeiculo" required>
+          <option value="">-- Selecione --</option>
+          <option value="Carro">Carro</option>
+          <option value="Moto">Moto</option>
+        </select>
+      </div>
+
+      
+      <div>
+        <label for="data">Data do agendamento:</label><br />
+        <input type="date" id="data" name="data" required />
+      </div>
+
+      <div>
+        <label for="hora">Hora do agendamento:</label><br />
+        <input type="time" id="hora" name="hora" required min="18:00" max="20:59" />
+      </div>
+
+      <div>
+        <label for="tipoLavagem">Tipo de lavagem:</label><br />
+        <select id="tipoLavagem" name="tipoLavagem" required>
+          <option value="">-- Selecione --</option>
+          <option value="Lavagem simples">Lavagem simples — R$30,00</option>
+          <option value="Lavagem completa">Lavagem completa — R$50,00</option>
+          <option value="Lavagem detalhada">Lavagem detalhada — R$80,00</option>
+          <option value="Lavagem moto">Lavagem moto — R$40,00</option>
+        </select>
+      </div>
+
+      <button type="submit">Agendar</button>
+    </form>
+
+    <div id="mensagem"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

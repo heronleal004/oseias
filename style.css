@@ -1,0 +1,146 @@
+/* Reset básico para remover margens e paddings padrões do navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: 
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), /* gradiente escuro por cima */
+    url('meufundo.jpg'); /* nova imagem de fundo */
+  background-size: cover; /* cobre toda a tela */
+  background-position: center; /* centraliza a imagem */
+  background-attachment: fixed; /* efeito parallax suave */
+  color: #333333; /* cor do texto padrão */
+  padding: 0;
+  min-height: 100vh; /* ocupa toda a altura da tela */
+}
+/* Header apenas com texto centralizado, sem imagem */
+header {
+  position: relative;
+  height: 140px; /* altura do header */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* texto na parte de baixo do header */
+  color: rgb(234, 230, 230);
+  font-size: 2.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  overflow: hidden;
+  padding-bottom: 18px; /* espaço extra abaixo do texto */
+}
+
+/* Camada escura para melhorar contraste do texto */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* preto semi-transparente */
+  z-index: 0;
+}
+
+/* Texto do header acima da camada escura */
+header h1 {
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* sombra para destacar o texto */
+}
+/* Estilo do formulário centralizado com efeito vidro (glassmorphism) */
+form {
+  max-width: 500px;
+  background: rgba(255,255,255,0.85); /* fundo branco semi-transparente */
+  margin: 40px auto 0 auto; /* centraliza e dá espaço acima */
+  padding: 32px 36px;
+  border-radius: 18px; /* cantos bem arredondados */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18); /* sombra suave */
+  backdrop-filter: blur(8px); /* efeito de desfoque no fundo */
+  -webkit-backdrop-filter: blur(8px); /* suporte para Safari */
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* espaçamento entre os campos */
+}
+
+/* Espaçamento entre os campos do formulário */
+form div {
+  margin-bottom: 0; /* gap já cuida do espaçamento */
+}
+
+/* Estilo dos rótulos dos campos */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #444444;
+}
+
+/* Estilo dos campos de entrada e seleção */
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="time"],
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #cccccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* Destaque nos campos ao focar */
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+select:focus {
+  border-color: #FF6600;
+  outline: none;
+}
+
+/* Botão de envio do formulário */
+button[type="submit"] {
+  background-color: #FF6600;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 14px 0;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito hover no botão */
+button[type="submit"]:hover {
+  background-color: #cc5200;
+}
+
+/* Mensagem de sucesso ou erro */
+#mensagem {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: green;
+}
+
+/* Responsividade para telas pequenas (celular) */
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+
+  header {
+    height: 90px;
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+}
